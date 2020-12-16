@@ -298,11 +298,11 @@ export default class GooglePlacesAutocomplete extends Component {
       request.open(
         "GET",
         "https://maps.googleapis.com/maps/api/place/details/json?" +
-          Qs.stringify({
-            key: this.props.query.key,
-            placeid: rowData.place_id,
-            language: this.props.query.language
-          })
+        Qs.stringify({
+          key: this.props.query.key,
+          placeid: rowData.place_id,
+          language: this.props.query.language
+        })
       );
 
       request.send();
@@ -517,9 +517,9 @@ export default class GooglePlacesAutocomplete extends Component {
       request.open(
         "GET",
         "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" +
-          encodeURIComponent(text) +
-          "&" +
-          Qs.stringify(this.props.query)
+        encodeURIComponent(text) +
+        "&" +
+        Qs.stringify(this.props.query)
       );
 
       request.send();
@@ -536,7 +536,7 @@ export default class GooglePlacesAutocomplete extends Component {
 
     this.setState({
       text: text,
-      listViewDisplayed: this._isMounted || this.props.autoFocus
+      listViewDisplayed: text ? (this._isMounted || this.props.autoFocus) : false
     });
   };
 
@@ -789,9 +789,9 @@ export default class GooglePlacesAutocomplete extends Component {
               onFocus={
                 onFocus
                   ? () => {
-                      this._onFocus();
-                      onFocus();
-                    }
+                    this._onFocus();
+                    onFocus();
+                  }
                   : this._onFocus
               }
               clearButtonMode="while-editing"
@@ -858,9 +858,9 @@ GooglePlacesAutocomplete.defaultProps = {
   isRowScrollable: true,
   underlineColorAndroid: "transparent",
   returnKeyType: "default",
-  onPress: () => {},
-  onNotFound: () => {},
-  onFail: () => {},
+  onPress: () => { },
+  onNotFound: () => { },
+  onFail: () => { },
   minLength: 0,
   fetchDetails: false,
   autoFocus: false,
@@ -895,7 +895,7 @@ GooglePlacesAutocomplete.defaultProps = {
   textInputHide: false,
   suppressDefaultStyles: false,
   numberOfLines: 2,
-  onSubmitEditing: () => {},
+  onSubmitEditing: () => { },
   editable: true
 };
 
