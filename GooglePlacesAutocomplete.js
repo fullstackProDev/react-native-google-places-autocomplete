@@ -9,13 +9,16 @@ import {
   Text,
   StyleSheet,
   Dimensions,
-  TouchableHighlight,
+
   Platform,
   ActivityIndicator,
   PixelRatio
 } from "react-native";
 import Qs from "qs";
 import debounce from "lodash.debounce";
+import { TouchableHighlight } from "react-native-gesture-handler";
+
+
 
 const WINDOW = Dimensions.get("window");
 
